@@ -1,5 +1,5 @@
 // Markdownファイルを読み込んで <main> に反映
-fetch("contents/sample.md")
+fetch("contents/home.md")
   .then(response => response.text())
   .then(text => {
     document.getElementById("content").innerHTML = marked.parse(text);
