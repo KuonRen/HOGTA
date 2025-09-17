@@ -1,0 +1,12 @@
+{
+	"pages": [
+		{ "title": "Home", "file": "home.md", "id": "home" },
+		{ "title": "用語集", "file": "glossary.md", "id": "glossary" },
+		{ "title": "豆知識", "file": "trivia.md", "id": "trivia" },
+		{ "title": "基本ルール", "file": "base.md", "id": "base" },
+		{ "title": "職業ルール", "file": "jobs.md", "id": "jobs" },
+		{ "title": "犯罪ルール", "file": "crime.md", "id": "crime" },
+		{ "title": "ギャングルール", "file": "gangs.md", "id": "gangs" },
+		{ "title": "法律一覧", "file": "law.md", "id": "law" }
+	]
+}
