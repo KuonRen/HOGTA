@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/png" href="assets/favicon.png">
-        <title>HOGTA Docs</title>   <!-- HOGTA ⇒ サーバー名の略称 -->
-        <link rel="stylesheet" href="assets/style.css" />
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <script defer src="assets/script.js"></script>
-    </head>
-    <body>
-        <header>
-            <h1>HOGTA Docs</h1>
-        </header>
-        <main id="content"></main>
-        <footer>
-            ©2025 - KuonRen
-        </footer>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="icon" type="image/png" href="assets/favicon.png" />
+		<title>HOGTA Docs</title>
+
+		<!-- スタイル -->
+		<link rel="stylesheet" href="assets/style.css">
+
+		<!-- Markdown -> HTML 変換ライブラリ（CDN） -->
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+		<!-- 主要スクリプト（deferで遅延実行） -->
+		<script src="assets/script.js" defer></script>
+	</head>
+	<body>
+		<!-- ===== ヘッダー =====
+            - HOGTA を h1 で表示（画面横いっぱい）
+            - モバイル用メニューボタンをヘッダーに内包
+		-->
+		<header id="site-header" role="banner" aria-label="サイトヘッダー">
+			<button id="menu-toggle" aria-controls="sidebar-left sidebar-right" aria-expanded="false" title="メニュー">
+				☰
+			</button>
+			<h1 id="site-title"><span id="egg-h">H</span>OGTA Docs</h1>
+		</header>
+
+		<!-- ===== 全体レイアウト ===== -->
+		<div id="main-layout" role="main">
+			<!-- 左サイドバー：ページ遷移用（常時表示：幅による） -->
+			<nav id="sidebar-left" class="sidebar" aria-label="ページ一覧">
+				<ul id="nav-pages" class="nav-list">
+					<!-- sidebar.json から自動生成 -->
+				</ul>
+			</nav>
+
+			<!-- メインコンテンツ：Markdown を HTML に変換してここに挿入 -->
+			<main id="content" tabindex="0" aria-live="polite">
+				<!-- 初期は空。script.js が contents/home.md を読み込む -->
+				<p class="loading-notice">読み込み中...</p>
+			</main>
+
+			<!-- 右サイドバー：現在のページの ## 見出し へのジャンプ -->
+			<nav id="sidebar-right" class="sidebar" aria-label="ページ内目次">
+				<ul id="nav-headings" class="nav-list">
+					<!-- JS がページ内の h2 を検出して生成 -->
+				</ul>
+			</nav>
+		</div>
+
+		<!-- 予備の noscript 表示 -->
+		<noscript>
+			<div style="padding:1rem;background:#ffe;">
+				JavaScript が無効です。ページ遷移や目次は動作しません。
+			</div>
+		</noscript>
+	</body>
 </html>
