@@ -181,7 +181,7 @@ body {
 	max-width: none;
 	margin: 0;
 	line-height: 1.8;
-	padding-bottom: 75vh;
+	padding-bottom: 80vh;
 	height: 100%;
 }
 #content h1 {
@@ -351,3 +351,4 @@ body {
   background: #40ffff;
   color: #000;
 }
+
