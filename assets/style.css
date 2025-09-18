@@ -2,7 +2,7 @@
    HOGTA ドキュメント用 style.css (Neon Blue Fixed Sidebar)
    =============================== */
 
-/* --- フォント埋め込み --- */
+/* --- フォント埋め込み（Playballをヘッダー専用で使用） --- */
 @font-face {
   font-family: 'Playball';
   src: url('fonts/Playball-Regular.woff2') format('woff2'),
@@ -12,30 +12,30 @@
   font-display: swap;
 }
 
-/* --- ベース --- */
+/* --- カラーバリエーションとレイアウト変数 --- */
 :root {
-	--header-bg: #0d47a1;   /* 濃いブルー */
-	--muted-bg:  #1a1d2b;   /* サイドバー背景を明るめのネイビー */
+	--header-bg: #0d47a1;   /* ヘッダー濃いブルー */
+	--muted-bg:  #1a1d2b;   /* サイドバー背景（暗めネイビー） */
 	--border:    #000;
 	--accent:    #00e5ff;   /* ネオンブルー */
-	--text:      #f0faff;   /* ほぼ白（少し青みがかった色） */
+	--text:      #f0faff;   /* 本文色（青みがかった白） */
 	--max-content-width: 960px;
 	--left-sidebar-width: 220px;
 	--right-sidebar-width: 220px;
 	--gutter: 16px;
 }
 
+/* --- ページ全体のベース設定 --- */
 * { box-sizing: border-box; }
 html, body {
 	height: 100%;
-	overflow: hidden; /* 全体スクロール禁止 */
+	overflow: hidden; /* 全体はスクロール禁止 */
 }
 body {
 	margin: 0;
 	font-family: "Orbitron","Noto Sans JP","源真ゴシック","Hiragino Kaku Gothic Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
 	color: var(--text);
-	/* 背景を真っ黒から柔らかいダークグラデーションへ */
-	background: linear-gradient(180deg, #1c1f2e 0%, #0e111b 100%);
+	background: linear-gradient(180deg, #1c1f2e 0%, #0e111b 100%); /* 黒→濃紺グラデーション */
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -43,7 +43,7 @@ body {
 	line-height: 1.8;
 }
 
-/* --- スクロールバー --- */
+/* --- スクロールバー統一デザイン --- */
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { background: var(--muted-bg); }
 ::-webkit-scrollbar-thumb {
@@ -66,7 +66,7 @@ body {
 	position: sticky;
 	top: 0;
 	z-index: 1200;
-	width: 100%;   /* 左右端まで広げる */
+	width: 100%;
 	left: 0;
 	right: 0;
 	box-shadow: 0 0 12px var(--accent);
@@ -74,11 +74,11 @@ body {
 #site-title {
 	margin: 0;
 	font-size: 1.8rem;
-	font-weight: normal; /* Playballは手書き風なのでboldは無効化 */
+	font-weight: normal; /* Playballは太字が効きにくいのでnormal */
 	letter-spacing: 0.05em;
 	color: var(--accent);
 	text-shadow: 0 0 8px var(--accent), 0 0 20px #00bcd4;
-	font-family: 'Playball', cursive; /* ← ヘッダー専用フォント適用 */
+	font-family: 'Playball', cursive; /* Playballフォント適用 */
 }
 #menu-toggle {
 	display: none;
@@ -94,7 +94,7 @@ body {
 	cursor: pointer;
 }
 
-/* --- 画像ヘッダー用クラス --- */
+/* --- 画像ヘッダー用（home.md専用） --- */
 #site-header.image-header {
 	background: none;
 	box-shadow: none;
@@ -121,8 +121,8 @@ body {
 /* --- 左サイドバー --- */
 #sidebar-left {
   border-right: 3px solid var(--accent);
-  overflow-y: auto;              /* 内容がはみ出したらスクロール */
-  max-height: calc(100vh - 56px);/* ヘッダーを除いた高さ */
+  overflow-y: auto;               /* はみ出したらスクロール */
+  max-height: calc(100vh - 56px); /* ヘッダーを除いた高さ */
   background: var(--muted-bg);
   padding: 16px;
   flex-shrink: 0;
@@ -133,8 +133,8 @@ body {
 /* --- 右サイドバー --- */
 #sidebar-right {
   border-left: 3px solid var(--accent);
-  overflow-y: auto;              /* 内容がはみ出したらスクロール */
-  max-height: calc(100vh - 56px);/* ヘッダーを除いた高さ */
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
   background: var(--muted-bg);
   padding: 16px;
   flex-shrink: 0;
@@ -142,7 +142,7 @@ body {
   top: 56px;
 }
 
-/* --- ナビリスト --- */
+/* --- ナビリスト（目次） --- */
 .nav-list { list-style: none; margin: 0; padding: 0; }
 .nav-list li { margin: 0.5rem 0; }
 .nav-list a {
@@ -156,7 +156,7 @@ body {
 	text-decoration: none;
 	transform: skew(-10deg);
 	transition: 0.2s;
-	font-size: 0.9rem; /* 左サイドバーの目次 */
+	font-size: 0.9rem; /* 左サイドバー用サイズ */
 	text-shadow: 0 0 6px var(--accent);
 }
 .nav-list a:hover,
@@ -171,7 +171,7 @@ body {
 
 /* --- 右サイドバーの目次だけさらに小さく --- */
 #sidebar-right .nav-list a {
-	font-size: 0.75rem;
+	font-size: 0.75rem; /* 右サイドバーはさらに小さめ */
 }
 
 /* --- メインコンテンツ --- */
@@ -181,7 +181,7 @@ body {
 	max-width: none;
 	margin: 0;
 	line-height: 1.8;
-	padding-bottom: 75vh;
+	padding-bottom: 100vh; /* ✅ 余白を増やした（スクロールしやすく） */
 	height: 100%;
 }
 #content h1 {
@@ -213,12 +213,12 @@ body {
   margin: 1rem 0 0.6rem 0;
   font-size: 1.15rem;
   font-weight: bold;
-  color: var(--accent); /* ネオンブルー */
+  color: var(--accent);
   text-shadow: 0 0 6px var(--accent), 0 0 12px var(--accent), 0 0 20px var(--accent);
-  background: none;     /* 背景なし */
-  border: none;         /* 枠線なし */
-  padding: 0;           /* 内側余白も削除 */
-  transform: none;      /* 斜めもなし */
+  background: none;
+  border: none;
+  padding: 0;
+  transform: none;
 }
 #content p { margin: 0.6rem 0; font-size: 1rem; color: var(--text); }
 #content pre {
@@ -256,7 +256,7 @@ body {
 	text-shadow: none;
 }
 
-/* --- ネオン強調とコメント --- */
+/* --- 補助クラス --- */
 .neon {
   color: var(--accent);
   text-shadow: 0 0 6px var(--accent), 0 0 12px var(--accent);
@@ -269,7 +269,7 @@ body {
   font-style: italic;
 }
 
-/* --- レスポンシブ（配置はそのまま） --- */
+/* --- レスポンシブ --- */
 @media (max-width: 768px) {
 	#menu-toggle { display: inline-block; }
 	#main-layout { display: block; height: calc(100% - 56px); }
@@ -351,6 +351,3 @@ body {
   background: #40ffff;
   color: #000;
 }
-
-
-
