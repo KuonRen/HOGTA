@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const h = document.getElementById('egg-h');
 	if (h) {
 		h.addEventListener('click', () => {
-			showEggPopup("街中で『久遠 蓮』に声をかけて<br>『猫』を語ってください。<br>いいことあるかもね");
+			showEggPopup("街中で『久遠 蓮』に声をかけて<br>『好きなこと』を語ってください。<br>いいことあるかもね");
 		});
 	}
 });
