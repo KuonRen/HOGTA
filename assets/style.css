@@ -15,10 +15,10 @@
 /* --- ベース --- */
 :root {
 	--header-bg: #0d47a1;   /* 濃いブルー */
-	--muted-bg:  #0a0f1c;   /* サイドバー背景 */
+	--muted-bg:  #1a1d2b;   /* サイドバー背景を明るめのネイビー */
 	--border:    #000;
 	--accent:    #00e5ff;   /* ネオンブルー */
-	--text:      #e0f7fa;   /* 本文色（青白） */
+	--text:      #f0faff;   /* ほぼ白（少し青みがかった色） */
 	--max-content-width: 960px;
 	--left-sidebar-width: 220px;
 	--right-sidebar-width: 220px;
@@ -34,7 +34,8 @@ body {
 	margin: 0;
 	font-family: "Orbitron","Noto Sans JP","源真ゴシック","Hiragino Kaku Gothic Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
 	color: var(--text);
-	background: #000;
+	/* 背景を真っ黒から柔らかいダークグラデーションへ */
+	background: linear-gradient(180deg, #1c1f2e 0%, #0e111b 100%);
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -170,7 +171,7 @@ body {
 
 /* --- 右サイドバーの目次だけさらに小さく --- */
 #sidebar-right .nav-list a {
-	font-size: 0.73rem;
+	font-size: 0.75rem;
 }
 
 /* --- メインコンテンツ --- */
@@ -209,17 +210,15 @@ body {
 	font-weight: bold;
 }
 #content h3 {
-	display: block;
-	width: fit-content;
-	padding: 6px 14px;
-	color: #fff;
-	background: #000;
-	border: 2px solid var(--accent);
-	transform: skew(-6deg);
-	margin: 1rem 0 0.6rem 0;
-	font-size: 1.15rem;
-	font-weight: bold;
-	text-shadow: 0 0 6px var(--accent);
+  margin: 1rem 0 0.6rem 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--accent); /* ネオンブルー */
+  text-shadow: 0 0 6px var(--accent), 0 0 12px var(--accent), 0 0 20px var(--accent);
+  background: none;     /* 背景なし */
+  border: none;         /* 枠線なし */
+  padding: 0;           /* 内側余白も削除 */
+  transform: none;      /* 斜めもなし */
 }
 #content p { margin: 0.6rem 0; font-size: 1rem; color: var(--text); }
 #content pre {
@@ -255,6 +254,19 @@ body {
 	color: #000;
 	border-color: #fff;
 	text-shadow: none;
+}
+
+/* --- ネオン強調とコメント --- */
+.neon {
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent), 0 0 12px var(--accent);
+  font-weight: bold;
+}
+.comment {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-left: 8px;
+  font-style: italic;
 }
 
 /* --- レスポンシブ（配置はそのまま） --- */
