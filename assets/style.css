@@ -1,14 +1,24 @@
 /* ===============================
-   HOGTA ドキュメント用 style.css (P5風)
+   HOGTA ドキュメント用 style.css (Neon Blue Fixed Sidebar)
    =============================== */
+
+/* --- フォント埋め込み --- */
+@font-face {
+  font-family: 'Playball';
+  src: url('fonts/Playball-Regular.woff2') format('woff2'),
+       url('fonts/Playball-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- ベース --- */
 :root {
-	--header-bg: #e60012;
-	--muted-bg:  #111;
+	--header-bg: #0d47a1;   /* 濃いブルー */
+	--muted-bg:  #0a0f1c;   /* サイドバー背景 */
 	--border:    #000;
-	--accent:    #ffd900;
-	--text:      #fff;
+	--accent:    #00e5ff;   /* ネオンブルー */
+	--text:      #e0f7fa;   /* 本文色（青白） */
 	--max-content-width: 960px;
 	--left-sidebar-width: 220px;
 	--right-sidebar-width: 220px;
@@ -16,37 +26,33 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; overflow-x: hidden; }
+html, body {
+	height: 100%;
+	overflow: hidden; /* 全体スクロール禁止 */
+}
 body {
 	margin: 0;
-	font-family: "Noto Sans JP","源真ゴシック","Hiragino Kaku Gothic Pro",Impact,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+	font-family: "Orbitron","Noto Sans JP","源真ゴシック","Hiragino Kaku Gothic Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
 	color: var(--text);
 	background: #000;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	font-size: 16px;
+	line-height: 1.8;
 }
 
-/* --- スクロールバー（全体統一） --- */
-::-webkit-scrollbar {
-	width: 12px;
-	height: 12px;
-}
-::-webkit-scrollbar-track {
-	background: var(--muted-bg);
-}
+/* --- スクロールバー --- */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--muted-bg); }
 ::-webkit-scrollbar-thumb {
-	background: var(--header-bg);
+	background: var(--accent);
 	border: 3px solid var(--muted-bg);
 	border-radius: 6px;
+	box-shadow: 0 0 6px var(--accent);
 }
-::-webkit-scrollbar-thumb:hover {
-	background: var(--accent);
-}
-* {
-	scrollbar-width: thin;
-	scrollbar-color: var(--header-bg) var(--muted-bg);
-}
+::-webkit-scrollbar-thumb:hover { background: #40ffff; }
+* { scrollbar-width: thin; scrollbar-color: var(--accent) var(--muted-bg); }
 
 /* --- ヘッダー --- */
 #site-header {
@@ -59,29 +65,47 @@ body {
 	position: sticky;
 	top: 0;
 	z-index: 1200;
-	transform: skew(-10deg);
-	box-shadow: 5px 5px 0 #000;
+	width: 100%;   /* 左右端まで広げる */
+	left: 0;
+	right: 0;
+	box-shadow: 0 0 12px var(--accent);
 }
 #site-title {
 	margin: 0;
 	font-size: 1.8rem;
-	font-weight: bold;
-	text-transform: uppercase;
+	font-weight: normal; /* Playballは手書き風なのでboldは無効化 */
 	letter-spacing: 0.05em;
-	transform: skew(10deg);
+	color: var(--accent);
+	text-shadow: 0 0 8px var(--accent), 0 0 20px #00bcd4;
+	font-family: 'Playball', cursive; /* ← ヘッダー専用フォント適用 */
 }
 #menu-toggle {
 	display: none;
 	position: absolute;
 	left: 12px;
 	top: 8px;
-	background: rgba(0,0,0,0.5);
-	border: 2px solid #fff;
-	color: white;
+	background: rgba(0,0,0,0.6);
+	border: 2px solid var(--accent);
+	color: var(--accent);
 	font-size: 1.1rem;
 	padding: 6px 8px;
 	border-radius: 6px;
 	cursor: pointer;
+}
+
+/* --- 画像ヘッダー用クラス --- */
+#site-header.image-header {
+	background: none;
+	box-shadow: none;
+	padding: 0;
+}
+#site-header.image-header #site-title { display: none; }
+#site-header.image-header::before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 200px;
+	background: url("assets/header.png") no-repeat center/cover;
 }
 
 /* --- レイアウト --- */
@@ -90,60 +114,83 @@ body {
 	grid-template-columns: var(--left-sidebar-width) 1fr minmax(200px, 320px);
 	flex: 1 1 auto;
 	min-height: 0;
+	height: 100%;
 }
-.sidebar {
-	background: var(--muted-bg);
-	overflow-y: auto;
-	padding: 16px;
-	flex-shrink: 0;
-	height: calc(100vh - 56px);
-	position: sticky;
-	top: 56px;
+
+/* --- 左サイドバー --- */
+#sidebar-left {
+  border-right: 3px solid var(--accent);
+  overflow-y: auto;              /* 内容がはみ出したらスクロール */
+  max-height: calc(100vh - 56px);/* ヘッダーを除いた高さ */
+  background: var(--muted-bg);
+  padding: 16px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 56px;
 }
-#sidebar-left { border-right: 3px solid var(--header-bg); }
-#sidebar-right { border-left: 3px solid var(--header-bg); }
+
+/* --- 右サイドバー --- */
+#sidebar-right {
+  border-left: 3px solid var(--accent);
+  overflow-y: auto;              /* 内容がはみ出したらスクロール */
+  max-height: calc(100vh - 56px);/* ヘッダーを除いた高さ */
+  background: var(--muted-bg);
+  padding: 16px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 56px;
+}
 
 /* --- ナビリスト --- */
 .nav-list { list-style: none; margin: 0; padding: 0; }
 .nav-list li { margin: 0.5rem 0; }
 .nav-list a {
 	display: block;
-	padding: 10px 14px;
-	margin: 6px 0;
-	color: #fff;
+	padding: 8px 12px;
+	margin: 4px 0;
+	color: var(--text);
 	background: #000;
-	border: 3px solid var(--header-bg);
+	border: 2px solid var(--accent);
 	font-weight: bold;
 	text-decoration: none;
 	transform: skew(-10deg);
 	transition: 0.2s;
+	font-size: 0.9rem; /* 左サイドバーの目次 */
+	text-shadow: 0 0 6px var(--accent);
 }
 .nav-list a:hover,
 .nav-list a:focus,
 #nav-headings a.active {
-	background: var(--header-bg);
-	color: #fff;
+	background: var(--accent);
+	color: #000;
 	transform: skew(-10deg) scale(1.05);
 	outline: none;
+	text-shadow: none;
+}
+
+/* --- 右サイドバーの目次だけさらに小さく --- */
+#sidebar-right .nav-list a {
+	font-size: 0.73rem;
 }
 
 /* --- メインコンテンツ --- */
 #content {
 	padding: 24px;
-	overflow-y: auto;
+	overflow-y: auto; /* コンテンツのみスクロール */
 	max-width: none;
 	margin: 0;
 	line-height: 1.8;
 	padding-bottom: 75vh;
+	height: 100%;
 }
 #content h1 {
 	display: block;
 	width: fit-content;
 	padding: 10px 18px;
-	color: #fff;
-	background: var(--header-bg);
+	color: #000;
+	background: var(--accent);
 	transform: skew(-10deg);
-	box-shadow: 5px 5px 0 #000;
+	box-shadow: 0 0 12px var(--accent);
 	margin: 1.5rem 0 1rem 0;
 	font-size: 1.8rem;
 	font-weight: bold;
@@ -152,10 +199,11 @@ body {
 	display: block;
 	width: fit-content;
 	padding: 8px 16px;
-	color: #fff;
-	background: var(--header-bg);
+	color: var(--accent);
+	background: transparent;
+	border: 2px solid var(--accent);
 	transform: skew(-10deg);
-	box-shadow: 4px 4px 0 #000;
+	box-shadow: 0 0 8px var(--accent);
 	margin: 1.2rem 0 0.8rem 0;
 	font-size: 1.4rem;
 	font-weight: bold;
@@ -164,28 +212,30 @@ body {
 	display: block;
 	width: fit-content;
 	padding: 6px 14px;
-	color: var(--accent);
+	color: #fff;
 	background: #000;
-	border: 3px solid var(--accent);
+	border: 2px solid var(--accent);
 	transform: skew(-6deg);
 	margin: 1rem 0 0.6rem 0;
 	font-size: 1.15rem;
 	font-weight: bold;
+	text-shadow: 0 0 6px var(--accent);
 }
-#content p { margin: 0.6rem 0; }
+#content p { margin: 0.6rem 0; font-size: 1rem; color: var(--text); }
 #content pre {
-	background: #111;
+	background: #0a0f1c;
 	color: var(--accent);
 	padding: 12px;
 	overflow: auto;
-	border: 3px solid var(--header-bg);
+	border: 2px solid var(--accent);
 	transform: skew(-2deg);
+	box-shadow: inset 0 0 8px var(--accent);
 }
 #content code {
-	background: #222;
-	color: #fff;
+	background: #111;
+	color: var(--accent);
 	padding: 2px 6px;
-	border: 1px solid var(--header-bg);
+	border: 1px solid var(--accent);
 	border-radius: 2px;
 }
 #content a {
@@ -198,48 +248,41 @@ body {
 	transform: skew(-6deg);
 	text-decoration: none;
 	transition: 0.2s;
+	text-shadow: 0 0 6px var(--accent);
 }
 #content a:hover {
 	background: var(--accent);
 	color: #000;
 	border-color: #fff;
+	text-shadow: none;
 }
 
-/* --- レスポンシブ --- */
+/* --- レスポンシブ（配置はそのまま） --- */
 @media (max-width: 768px) {
 	#menu-toggle { display: inline-block; }
-	#main-layout { display: block; }
+	#main-layout { display: block; height: calc(100% - 56px); }
 	#sidebar-left {
 		display: none;
 		position: fixed;
 		top: 56px;
 		bottom: 0;
-		height: auto;
 		z-index: 1300;
-		box-shadow: 0 2px 12px rgba(0,0,0,0.5);
 		left: 0;
 		width: 80%;
 		max-width: 320px;
+		box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+		height: 100%;
 	}
 	#sidebar-left.sidebar-active { display: block; }
 	#sidebar-right { display: none !important; }
-	#content { 
-		padding: 16px; 
-		max-width: var(--max-content-width); 
-		margin: 0 auto; 
-		padding-bottom: 75vh; 
-	}
+	#content { padding: 16px; max-width: var(--max-content-width); margin: 0 auto; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
 	#menu-toggle { display: inline-block; }
 	#main-layout { grid-template-columns: 1fr minmax(200px, 320px); }
 	#sidebar-left { display: none; }
 	#sidebar-right { display: block; }
-	#content { 
-		max-width: var(--max-content-width); 
-		margin: 0 auto; 
-		padding-bottom: 75vh; 
-	}
+	#content { max-width: var(--max-content-width); margin: 0 auto; }
 }
 @media (min-width: 1025px) {
 	#menu-toggle { display: none; }
@@ -249,20 +292,14 @@ body {
 	}
 	#sidebar-left { display: block; }
 	#sidebar-right { display: block; }
-	#content { 
-		max-width: none; 
-		margin: 0; 
-		padding-bottom: 75vh; 
-	}
+	#content { max-width: none; margin: 0; }
 }
 
 /* --- ユーティリティ --- */
 .loading-notice { color: #ccc; font-style: italic; }
-
-/* ページ内リンク用オフセット */
 [id] { scroll-margin-top: 56px; }
 
-/* --- イースターエッグ（ポップアップ） --- */
+/* --- イースターエッグ --- */
 #egg-overlay {
   display: none;
   position: fixed;
@@ -275,44 +312,30 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.8);
-  background: #fff;
-  color: #000;
+  background: #0a0f1c;
+  color: var(--text);
   padding: 24px 32px;
-  border: 4px solid var(--header-bg);
-  box-shadow: 8px 8px 0 #000;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 12px var(--accent);
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   max-width: 400px;
-  width: 90%;
-  border-radius: 12px;
+  border-radius: 8px;
   transition: transform 0.25s ease;
-  word-break: break-word;
 }
-#egg-overlay.show #egg-popup {
-  transform: translate(-50%, -50%) scale(1);
-}
+#egg-overlay.show #egg-popup { transform: translate(-50%, -50%) scale(1); }
 #egg-popup button {
   margin-top: 16px;
-  padding: 8px 14px;
+  padding: 6px 12px;
   font-size: 1rem;
-  background: var(--header-bg);
-  color: #fff;
+  background: var(--accent);
+  color: #000;
   border: none;
   cursor: pointer;
   border-radius: 6px;
 }
 #egg-popup button:hover {
-  background: var(--accent);
+  background: #40ffff;
   color: #000;
-}
-@media (max-width: 480px) {
-  #egg-popup {
-    font-size: 1rem;
-    padding: 16px 20px;
-  }
-  #egg-popup button {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
 }
