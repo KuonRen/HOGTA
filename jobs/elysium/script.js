@@ -1,11 +1,11 @@
 // Firebase 設定（他ジョブと同じプロジェクトでOK）
 const firebaseConfig = {
-  apiKey: "あなたのAPIキー",
-  authDomain: "hogta-xxxx.firebaseapp.com",
-  projectId: "hogta-xxxx",
-  storageBucket: "hogta-xxxx.appspot.com",
-  messagingSenderId: "数字ID",
-  appId: "アプリID"
+  apiKey: "AIzaSyC_ADtUa8nfxV30KnPAtMuIIIFqvRPaE4Q",
+  authDomain: "hogta-elysium.firebaseapp.com",
+  projectId: "hogta-elysium",
+  storageBucket: "hogta-elysium.firebasestorage.app",
+  messagingSenderId: "590784867570",
+  appId: "1:590784867570:web:b4e64c3d9d486ddc06746b"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -76,3 +76,4 @@ btnClear.addEventListener("click", () => {
   document.querySelectorAll("#fee-items input[type=checkbox]").forEach(cb => cb.checked = false);
   feeResult.classList.add("hidden");
 });
+
