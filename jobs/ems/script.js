@@ -1,11 +1,11 @@
 // Firebase 設定（警察/猫カフェ/Elysium/メカニックと同じプロジェクトでOK）
 const firebaseConfig = {
-  apiKey: "あなたのAPIキー",
-  authDomain: "hogta-xxxx.firebaseapp.com",
-  projectId: "hogta-xxxx",
-  storageBucket: "hogta-xxxx.appspot.com",
-  messagingSenderId: "数字ID",
-  appId: "アプリID"
+  apiKey: "AIzaSyD2mw2TylqiQ6rtALqfcHvyEWDGISDeQ6k",
+  authDomain: "hogta-ems.firebaseapp.com",
+  projectId: "hogta-ems",
+  storageBucket: "hogta-ems.firebasestorage.app",
+  messagingSenderId: "100912744028",
+  appId: "1:100912744028:web:a28a854ed3634c348ac899"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -57,3 +57,4 @@ auth.onAuthStateChanged(user => {
     currentUser.textContent = "—";
   }
 });
+
