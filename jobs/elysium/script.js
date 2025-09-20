@@ -8,6 +8,7 @@ const firebaseConfig = {
   appId: "1:590784867570:web:b4e64c3d9d486ddc06746b"
 };
 
+
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
@@ -21,14 +22,9 @@ const passInput = document.getElementById("password");
 const loginMsg = document.getElementById("login-msg");
 const currentUser = document.getElementById("current-user");
 
-const btnCalc = document.getElementById("btn-calc");
-const btnClear = document.getElementById("btn-clear");
-const feeTotalElem = document.getElementById("fee-total");
-const feeResult = document.getElementById("fee-result");
-
 // スタッフコード → 疑似メール
 function staffToEmail(staff) {
-  return `${staff}@hogta.local`;
+  return `${staff}@hogta.local`; 
 }
 
 // ログイン
@@ -55,25 +51,10 @@ auth.onAuthStateChanged(user => {
   if (user) {
     loginScreen.classList.add("hidden");
     appScreen.classList.remove("hidden");
-    currentUser.textContent = user.email.split("@")[0]; // HOELY-001 部分だけ表示
+    currentUser.textContent = user.email.split("@")[0]; // HOEMS-001 部分だけ表示
   } else {
     loginScreen.classList.remove("hidden");
     appScreen.classList.add("hidden");
     currentUser.textContent = "—";
   }
 });
-
-// 料金計算
-btnCalc.addEventListener("click", () => {
-  const checks = document.querySelectorAll("#fee-items input[type=checkbox]");
-  let total = 0;
-  checks.forEach(cb => { if (cb.checked) total += parseInt(cb.dataset.amount); });
-  feeTotalElem.textContent = `¥${total.toLocaleString()}`;
-  feeResult.classList.remove("hidden");
-});
-
-btnClear.addEventListener("click", () => {
-  document.querySelectorAll("#fee-items input[type=checkbox]").forEach(cb => cb.checked = false);
-  feeResult.classList.add("hidden");
-});
-
