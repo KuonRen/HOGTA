@@ -8,11 +8,10 @@ const firebaseConfig = {
   appId: "1:590784867570:web:b4e64c3d9d486ddc06746b"
 };
 
-
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// DOM
+// DOM 要素取得
 const loginScreen = document.getElementById("login-screen");
 const appScreen = document.getElementById("app-screen");
 const btnLogin = document.getElementById("btn-login");
@@ -22,12 +21,17 @@ const passInput = document.getElementById("password");
 const loginMsg = document.getElementById("login-msg");
 const currentUser = document.getElementById("current-user");
 
-// スタッフコード → 疑似メール
+const btnCalc = document.getElementById("btn-calc");
+const btnClear = document.getElementById("btn-clear");
+const feeTotalElem = document.getElementById("fee-total");
+const feeResult = document.getElementById("fee-result");
+
+// スタッフコードを疑似メール化
 function staffToEmail(staff) {
-  return `${staff}@hogta.local`; 
+  return `${staff}@hogta.local`;
 }
 
-// ログイン
+// ログイン処理
 btnLogin.addEventListener("click", async () => {
   const staff = staffInput.value.trim();
   const pw = passInput.value.trim();
@@ -41,20 +45,35 @@ btnLogin.addEventListener("click", async () => {
   }
 });
 
-// ログアウト
+// ログアウト処理
 btnLogout.addEventListener("click", async () => {
   await auth.signOut();
 });
 
-// 認証状態を監視
+// 認証状態の監視
 auth.onAuthStateChanged(user => {
   if (user) {
     loginScreen.classList.add("hidden");
     appScreen.classList.remove("hidden");
-    currentUser.textContent = user.email.split("@")[0]; // HOEMS-001 部分だけ表示
+    currentUser.textContent = user.email.split("@")[0]; // HOELY-001 部分を表示
   } else {
     loginScreen.classList.remove("hidden");
     appScreen.classList.add("hidden");
     currentUser.textContent = "—";
   }
+});
+
+// 料金計算
+btnCalc.addEventListener("click", () => {
+  const checks = document.querySelectorAll("#fee-items input[type=checkbox]");
+  let total = 0;
+  checks.forEach(cb => { if (cb.checked) total += parseInt(cb.dataset.amount); });
+  feeTotalElem.textContent = `¥${total.toLocaleString()}`;
+  feeResult.classList.remove("hidden");
+});
+
+// クリア処理
+btnClear.addEventListener("click", () => {
+  document.querySelectorAll("#fee-items input[type=checkbox]").forEach(cb => cb.checked = false);
+  feeResult.classList.add("hidden");
 });
