@@ -1,0 +1,87 @@
+:root {
+  --bg:#fff0f6;          /* ペールピンク背景 */
+  --card:#ffe6f0;        /* 濃いめピンクカード */
+  --accent:#e91e63;      /* 濃ピンクアクセント */
+  --muted:#aa6688;       /* ピンク寄りの補助色 */
+  --text:#4a2c2c;        /* 落ち着いたブラウン系文字 */
+  --danger:#d81b60;      /* 強めピンク */
+}
+
+* { box-sizing: border-box; }
+html,body {
+  height:100%;
+  margin:0;
+  font-family:"Noto Sans JP","Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.wrap { max-width:960px; margin:28px auto; padding:18px; }
+header { text-align:center; margin-bottom:20px; }
+header h1 {
+  margin:0;
+  font-size:1.8rem;
+  color:var(--accent);
+  text-shadow:0 0 6px rgba(233,30,99,0.5);
+}
+.subtitle { color:var(--muted); font-size:0.95rem; }
+
+.card {
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  margin-bottom:14px;
+  border:1px solid #f5b6c9;
+  box-shadow:0 4px 10px rgba(233,30,99,0.2);
+}
+.small { font-size:0.9rem; padding:12px; }
+
+.field { display:block; margin-bottom:12px; }
+.field span { display:block; margin-bottom:6px; color:var(--muted); font-size:0.9rem; }
+.field input {
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #f5b6c9;
+  background:#fff;
+  color:var(--text);
+}
+
+.actions { display:flex; gap:8px; margin-top:10px; }
+.btn {
+  background:var(--accent);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  transition:background 0.2s, transform 0.1s;
+}
+.btn:hover { background:#c2185b; transform:scale(1.05); }
+.btn-ghost {
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+}
+.btn-danger {
+  background:var(--danger);
+  color:#fff;
+}
+
+.msg { margin-top:10px; color:var(--danger); font-weight:600; }
+.hidden { display:none; }
+
+.topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+
+.chk { display:block; margin:6px 0; }
+.fee-actions { margin-top:12px; display:flex; gap:8px; }
+.result {
+  margin-top:10px;
+  padding:10px;
+  background:#ffd6e8;
+  border-radius:8px;
+  border:1px solid #f5b6c9;
+  box-shadow:0 0 8px rgba(233,30,99,0.3);
+}
+
+.muted { color:var(--muted); }

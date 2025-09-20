@@ -1,0 +1,95 @@
+:root {
+  --bg:#ffffff;
+  --card:#f9f9f9;
+  --accent:#d32f2f; /* EMS レッド */
+  --muted:#666666;
+  --text:#222222;
+  --danger:#b71c1c;
+}
+
+* { box-sizing: border-box; }
+html,body {
+  height:100%;
+  margin:0;
+  font-family:"Noto Sans JP","Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.wrap {
+  max-width:960px;
+  margin:28px auto;
+  padding:18px;
+}
+header {
+  text-align:center;
+  margin-bottom:20px;
+}
+header h1 {
+  margin:0;
+  font-size:1.8rem;
+  color:var(--accent);
+  text-transform:uppercase;
+}
+.subtitle {
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.card {
+  background:var(--card);
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:14px;
+  border:1px solid #e0e0e0;
+  box-shadow:0 3px 8px rgba(0,0,0,0.05);
+}
+.small { font-size:0.9rem; padding:12px; }
+
+.field { display:block; margin-bottom:12px; }
+.field span {
+  display:block;
+  margin-bottom:6px;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+.field input {
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  background:#fff;
+  color:var(--text);
+}
+
+.actions { display:flex; gap:8px; margin-top:10px; }
+.btn {
+  background:var(--accent);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  transition:background 0.2s;
+}
+.btn:hover { background:#b71c1c; }
+.btn-ghost {
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+}
+.btn-danger {
+  background:var(--danger);
+  color:#fff;
+}
+
+.msg { margin-top:10px; color:var(--danger); font-weight:600; }
+.hidden { display:none; }
+
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.muted { color:var(--muted); }

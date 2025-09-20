@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HOGTA — EMS — Staff Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>HOGTA — EMS</h1>
+      <p class="subtitle">スタッフ専用ポータル（管理者発行アカウントのみ）</p>
+    </header>
+
+    <!-- ログイン画面 -->
+    <main id="login-screen" class="card">
+      <h2>スタッフログイン</h2>
+      <p class="hint">スタッフコードとパスワードでログインしてください。</p>
+
+      <label class="field">
+        <span>スタッフコード</span>
+        <input id="staff-code" type="text" placeholder="例: HOEMS-001" autocomplete="username" />
+      </label>
+
+      <label class="field">
+        <span>パスワード</span>
+        <input id="password" type="password" placeholder="パスワード" autocomplete="current-password" />
+      </label>
+
+      <div class="actions">
+        <button id="btn-login" class="btn">ログイン</button>
+      </div>
+
+      <div id="login-msg" class="msg"></div>
+    </main>
+
+    <!-- ログイン後の画面 -->
+    <main id="app-screen" class="hidden">
+      <div class="topbar">
+        <div>ログイン中：<span id="current-user">—</span></div>
+        <div class="top-actions">
+          <button id="btn-logout" class="btn btn-danger">ログアウト</button>
+        </div>
+      </div>
+
+      <section class="card">
+        <h2>企業内規則</h2>
+        <p>ここに救急部門の企業内規則を記載してください。</p>
+      </section>
+
+      <footer class="card small">
+        <p class="muted">※ このポータルはゲーム内企業メンバー向けの簡易保護です。</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Firebase compat版 -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

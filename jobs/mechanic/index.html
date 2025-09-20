@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HOGTA — Mechanic — Staff Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>HOGTA — Mechanic</h1>
+      <p class="subtitle">スタッフ専用ポータル（管理者発行アカウントのみ）</p>
+    </header>
+
+    <!-- ログイン画面 -->
+    <main id="login-screen" class="card">
+      <h2>スタッフログイン</h2>
+      <p class="hint">スタッフコードとパスワードでログインしてください。</p>
+
+      <label class="field">
+        <span>スタッフコード</span>
+        <input id="staff-code" type="text" placeholder="例: MEC001" autocomplete="username" />
+      </label>
+
+      <label class="field">
+        <span>パスワード</span>
+        <input id="password" type="password" placeholder="パスワード" autocomplete="current-password" />
+      </label>
+
+      <div class="actions">
+        <button id="btn-login" class="btn">ログイン</button>
+      </div>
+
+      <div id="login-msg" class="msg"></div>
+    </main>
+
+    <!-- ログイン後の画面 -->
+    <main id="app-screen" class="hidden">
+      <div class="topbar">
+        <div>ログイン中：<span id="current-user">—</span></div>
+        <div class="top-actions">
+          <button id="btn-logout" class="btn btn-danger">ログアウト</button>
+        </div>
+      </div>
+
+      <section class="card">
+        <h2>企業内規則</h2>
+        <p>ここにメカニック部門の企業内規則を記載してください。</p>
+      </section>
+
+      <section class="card">
+        <h2>料金計算ツール</h2>
+        <p class="hint">サービスを選択して合計を算出します。</p>
+
+        <form id="fee-form">
+          <div id="fee-items">
+            <label class="chk"><input type="checkbox" data-amount="1000" /> 簡易修理 — ¥1,000</label>
+            <label class="chk"><input type="checkbox" data-amount="5000" /> エンジン修理 — ¥5,000</label>
+            <label class="chk"><input type="checkbox" data-amount="3000" /> タイヤ交換 — ¥3,000</label>
+            <label class="chk"><input type="checkbox" data-amount="8000" /> フルメンテナンス — ¥8,000</label>
+          </div>
+
+          <div class="fee-actions">
+            <button id="btn-calc" type="button" class="btn">計算</button>
+            <button id="btn-clear" type="button" class="btn btn-ghost">クリア</button>
+          </div>
+        </form>
+
+        <div id="fee-result" class="result hidden">
+          <p>合計：<strong id="fee-total">¥0</strong></p>
+        </div>
+      </section>
+
+      <footer class="card small">
+        <p class="muted">※ このポータルはゲーム内企業メンバー向けの簡易保護です。</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Firebase compat版 -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
