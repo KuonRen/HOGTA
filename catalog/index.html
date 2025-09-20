@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOGTA 車両カタログ</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 高級感フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html">HOGTA Cardealer</a></h1>
+    <p>車両カタログ</p>
+  </header>
+
+  <main>
+    <!-- 検索フィルタ -->
+    <div class="filter">
+      <input type="text" id="search" placeholder="車両名・車種・価格で検索...">
+    </div>
+
+    <!-- 車種フィルタ -->
+    <div class="filters">
+      <label><input type="checkbox" class="filter-type" value="スーパー"> スーパー</label>
+      <label><input type="checkbox" class="filter-type" value="スポーツ"> スポーツ</label>
+      <label><input type="checkbox" class="filter-type" value="マッスル"> マッスル</label>
+      <label><input type="checkbox" class="filter-type" value="バイク"> バイク</label>
+      <label><input type="checkbox" class="filter-type" value="その他"> その他</label>
+    </div>
+
+    <!-- 並び替え -->
+    <div class="sort">
+      <label for="sort">並び替え: </label>
+      <select id="sort">
+        <option value="asc">価格が安い順</option>
+        <option value="desc">価格が高い順</option>
+      </select>
+    </div>
+
+    <!-- 車両一覧 -->
+    <div id="car-grid"></div>
+  </main>
+
+  <!-- モーダル（画像のみ） -->
+  <div id="modal" class="modal">
+    <div class="modal-content image-only">
+      <img id="modal-img" src="" alt="">
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 HOGTA Catalog</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

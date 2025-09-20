@@ -1,0 +1,210 @@
+/* 全体レイアウト */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #121826;
+  color: #f0faff;
+  overflow-x: hidden;
+}
+
+/* ヘッダー */
+header {
+  background: #0d47a1;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 3px solid #00e5ff;
+}
+
+/* フッター（通常フローに配置） */
+footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 3px solid #00e5ff;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 2rem;
+}
+
+/* コンテナ：中央の残りを3カラムで使う */
+.container {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+/* 左右サイドバー */
+.sidebar-left,
+.sidebar-right {
+  background: #1a1f33;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  /* 上下の隙間を確保して固定 */
+  position: sticky;
+  top: 1rem;
+  bottom: 1rem;
+  max-height: calc(100vh - 2rem); /* 上下 1rem ずつ余白 */
+  overflow-y: auto;
+}
+
+.sidebar-left {
+  border-right: 2px solid #00e5ff;
+}
+.sidebar-right {
+  border-left: 2px solid #00e5ff;
+}
+
+/* 中央コンテンツ */
+.content {
+  background: #182030;
+  padding: 2rem;
+  border: 1px solid #00e5ff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  min-height: 70vh;
+}
+
+/* サイドバー見出し */
+.sidebar-left h3,
+.sidebar-right h3 {
+  font-size: 0.9rem;
+  margin: 0.8rem 0 0.4rem;
+  color: #00e5ff;
+}
+
+/* サイドバー内リンクをボタン風にコンパクト調整 */
+.sidebar-left ul,
+.sidebar-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-left li,
+.sidebar-right li {
+  margin: 0.3rem 0;
+}
+.sidebar-left a,
+.sidebar-right a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  background: #1e273a;
+  border: 1px solid #00e5ff;
+  border-radius: 6px;
+  color: #aeefff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 4px rgba(0,229,255,0.3);
+}
+.sidebar-left a:hover,
+.sidebar-right a:hover {
+  background: #00bcd4;
+  color: #fff;
+  box-shadow: 0 0 8px #00e5ff, 0 0 12px #00e5ff;
+}
+.sidebar-left a.active {
+  background: #00e5ff;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+}
+
+/* 見出し装飾（本文側） */
+.content h1, .content h2, .content h3 {
+  color: #00e5ff;
+  margin-top: 1.2rem;
+  text-shadow: 0 0 5px rgba(0,229,255,0.6);
+}
+
+/* =========================
+   スクロールバー デザイン
+   ========================= */
+
+/* Firefox 用 */
+html, body,
+.sidebar-left,
+.sidebar-right,
+.content {
+  scrollbar-width: thin;
+  scrollbar-color: #00e5ff #1a1f33;
+}
+
+/* WebKit 系 (Chrome, Edge, Safari) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.sidebar-left::-webkit-scrollbar,
+.sidebar-right::-webkit-scrollbar,
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.sidebar-left::-webkit-scrollbar-track,
+.sidebar-right::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+  background: #1a1f33;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.sidebar-left::-webkit-scrollbar-thumb,
+.sidebar-right::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00e5ff, #0099cc);
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0,229,255,0.8), 0 0 10px rgba(0,229,255,0.5);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+.sidebar-left::-webkit-scrollbar-thumb:hover,
+.sidebar-right::-webkit-scrollbar-thumb:hover,
+.content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00e5ff, #0077aa);
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+}
+
+/* 本文内リンク装飾 */
+.content a {
+  color: #00e5ff;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 229, 255, 0.6);
+  transition: all 0.25s ease-in-out;
+  font-weight: 500;
+}
+.content a:hover {
+  color: #fff;
+  text-decoration-color: #00e5ff;
+  text-shadow: 0 0 6px #00e5ff, 0 0 12px #00e5ff;
+}
+
+/* スマホ対応 */
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar-left,
+  .sidebar-right {
+    display: none;
+  }
+}
+
+/* ヘッダー内リンク（HOGTA トップリンク） */
+header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+header h1 a:hover {
+  color: #aeefff;
+  text-shadow: 0 0 6px #00e5ff;
+}

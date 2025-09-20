@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1,
+    "name": "Lamborghini Aventador",
+    "model": "スーパー",
+    "price": "$400,000",
+    "image": "img/nero-cus.webp"
+  },
+  {
+    "id": 2,
+    "name": "Ferrari SF90 Stradale",
+    "model": "スーパー",
+    "price": "$450,000",
+    "image": "img/sf90.jpg"
+  },
+  {
+    "id": 3,
+    "name": "McLaren P1",
+    "model": "スーパー",
+    "price": "$1,150,000",
+    "image": "img/p1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Bugatti Chiron",
+    "model": "スーパー",
+    "price": "$3,000,000",
+    "image": "img/chiron.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Aston Martin Valkyrie",
+    "model": "スーパー",
+    "price": "$3,200,000",
+    "image": "img/valkyrie.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Koenigsegg Jesko",
+    "model": "スーパー",
+    "price": "$2,800,000",
+    "image": "img/jesko.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Pagani Huayra",
+    "model": "スーパー",
+    "price": "$2,600,000",
+    "image": "img/huayra.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Porsche 918 Spyder",
+    "model": "スーパー",
+    "price": "$850,000",
+    "image": "img/918.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Mercedes-AMG One",
+    "model": "スーパー",
+    "price": "$2,700,000",
+    "image": "img/amgone.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Lamborghini Veneno",
+    "model": "スーパー",
+    "price": "$4,500,000",
+    "image": "img/veneno.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Porsche 911 Turbo S",
+    "model": "スポーツ",
+    "price": "$220,000",
+    "image": "img/911turbo.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Chevrolet Corvette C8",
+    "model": "スポーツ",
+    "price": "$70,000",
+    "image": "img/corvettec8.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Nissan GT-R Nismo",
+    "model": "スポーツ",
+    "price": "$210,000",
+    "image": "img/gtr.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Toyota Supra GR",
+    "model": "スポーツ",
+    "price": "$55,000",
+    "image": "img/supra.jpg"
+  },
+  {
+    "id": 15,
+    "name": "BMW M4 Competition",
+    "model": "スポーツ",
+    "price": "$80,000",
+    "image": "img/m4.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Audi R8",
+    "model": "スポーツ",
+    "price": "$160,000",
+    "image": "img/r8.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Jaguar F-Type R",
+    "model": "スポーツ",
+    "price": "$120,000",
+    "image": "img/ftype.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Maserati MC20",
+    "model": "スポーツ",
+    "price": "$210,000",
+    "image": "img/mc20.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Alpine A110",
+    "model": "スポーツ",
+    "price": "$70,000",
+    "image": "img/a110.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Lotus Evora",
+    "model": "スポーツ",
+    "price": "$95,000",
+    "image": "img/evora.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Ford Mustang GT",
+    "model": "マッスル",
+    "price": "$55,000",
+    "image": "img/mustang.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Chevrolet Camaro ZL1",
+    "model": "マッスル",
+    "price": "$65,000",
+    "image": "img/camaro.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Dodge Challenger Hellcat",
+    "model": "マッスル",
+    "price": "$70,000",
+    "image": "img/challenger.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Dodge Charger SRT",
+    "model": "マッスル",
+    "price": "$75,000",
+    "image": "img/charger.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Chevrolet Chevelle SS",
+    "model": "マッスル",
+    "price": "$90,000",
+    "image": "img/chevelle.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Pontiac GTO",
+    "model": "マッスル",
+    "price": "$85,000",
+    "image": "img/gto.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Plymouth Barracuda",
+    "model": "マッスル",
+    "price": "$95,000",
+    "image": "img/barracuda.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Shelby GT500",
+    "model": "マッスル",
+    "price": "$100,000",
+    "image": "img/gt500.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Dodge Viper",
+    "model": "マッスル",
+    "price": "$120,000",
+    "image": "img/viper.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Chevrolet Nova SS",
+    "model": "マッスル",
+    "price": "$95,000",
+    "image": "img/nova.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Harley-Davidson Fat Boy",
+    "model": "バイク",
+    "price": "$22,000",
+    "image": "img/fatboy.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Ducati Panigale V4",
+    "model": "バイク",
+    "price": "$28,000",
+    "image": "img/panigale.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Kawasaki Ninja H2",
+    "model": "バイク",
+    "price": "$30,000",
+    "image": "img/ninja.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Yamaha YZF-R1",
+    "model": "バイク",
+    "price": "$20,000",
+    "image": "img/r1.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Suzuki Hayabusa",
+    "model": "バイク",
+    "price": "$18,000",
+    "image": "img/hayabusa.jpg"
+  },
+  {
+    "id": 36,
+    "name": "BMW S1000RR",
+    "model": "バイク",
+    "price": "$25,000",
+    "image": "img/s1000rr.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Honda CBR1000RR",
+    "model": "バイク",
+    "price": "$19,000",
+    "image": "img/cbr1000.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Triumph Bonneville",
+    "model": "バイク",
+    "price": "$15,000",
+    "image": "img/bonneville.jpg"
+  },
+  {
+    "id": 39,
+    "name": "MV Agusta Brutale 1000",
+    "model": "バイク",
+    "price": "$35,000",
+    "image": "img/brutale.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Aprilia RSV4",
+    "model": "バイク",
+    "price": "$27,000",
+    "image": "img/rsv4.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Toyota Century",
+    "model": "その他",
+    "price": "$180,000",
+    "image": "img/century.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Rolls-Royce Phantom",
+    "model": "その他",
+    "price": "$500,000",
+    "image": "img/phantom.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Bentley Continental GT",
+    "model": "その他",
+    "price": "$220,000",
+    "image": "img/continental.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Maybach S-Class",
+    "model": "その他",
+    "price": "$250,000",
+    "image": "img/maybach.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Lexus LS 500h",
+    "model": "その他",
+    "price": "$120,000",
+    "image": "img/ls500h.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Cadillac Escalade",
+    "model": "その他",
+    "price": "$100,000",
+    "image": "img/escalade.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Range Rover SVAutobiography",
+    "model": "その他",
+    "price": "$200,000",
+    "image": "img/range.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Tesla Model S Plaid",
+    "model": "その他",
+    "price": "$130,000",
+    "image": "img/modelS.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Genesis G90",
+    "model": "その他",
+    "price": "$90,000",
+    "image": "img/g90.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Lincoln Navigator",
+    "model": "その他",
+    "price": "$95,000",
+    "image": "img/navigator.jpg"
+  }
+]
