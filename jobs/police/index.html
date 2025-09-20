@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>HOGTA — Police — Staff Portal</title>
   <link rel="stylesheet" href="style.css">
-  <!-- favicon note: you can add your favicon in /police/favicon.ico -->
 </head>
 <body>
   <div class="wrap">
@@ -14,14 +13,14 @@
       <p class="subtitle">スタッフ専用ポータル（管理者発行アカウントのみ）</p>
     </header>
 
-    <!-- LOGIN -->
+    <!-- ログイン画面 -->
     <main id="login-screen" class="card">
       <h2>スタッフログイン</h2>
-      <p class="hint">管理者から配られたスタッフコードとパスワードでログインしてください。</p>
+      <p class="hint">スタッフコードとパスワードでログインしてください。</p>
 
       <label class="field">
         <span>スタッフコード</span>
-        <input id="staff-code" type="text" inputmode="latin" placeholder="例: POL1234" autocomplete="username" />
+        <input id="staff-code" type="text" placeholder="例: HOPD001" autocomplete="username" />
       </label>
 
       <label class="field">
@@ -31,13 +30,12 @@
 
       <div class="actions">
         <button id="btn-login" class="btn">ログイン</button>
-        <button id="btn-demo" class="btn btn-ghost" title="デモ用">デモ表示</button>
       </div>
 
       <div id="login-msg" class="msg"></div>
     </main>
 
-    <!-- PROTECTED CONTENT -->
+    <!-- ログイン後の画面 -->
     <main id="app-screen" class="hidden">
       <div class="topbar">
         <div>ログイン中：<span id="current-user">—</span></div>
@@ -48,19 +46,15 @@
 
       <section class="card">
         <h2>企業内規則</h2>
-        <div id="rules">
-          <!-- 規則内容をここに記述してください -->
-          <p>ここに警察部門の企業内規則を記載します。運用ルール、勤務時間、ペナルティ基準など。</p>
-        </div>
+        <p>ここに警察部門の企業内規則を記載してください。</p>
       </section>
 
       <section class="card">
         <h2>罰金計算ツール</h2>
-        <p class="hint">該当する項目をチェックして「計算」を押してください。</p>
+        <p class="hint">項目を選んで合計を算出します。</p>
 
         <form id="fine-form">
           <div id="fine-items">
-            <!-- サンプルの項目。後で項目は追加/編集してください -->
             <label class="chk"><input type="checkbox" data-amount="5000" /> 速度違反（軽） — ¥5,000</label>
             <label class="chk"><input type="checkbox" data-amount="15000" /> 速度違反（重） — ¥15,000</label>
             <label class="chk"><input type="checkbox" data-amount="30000" /> 飲酒運転 — ¥30,000</label>
@@ -78,16 +72,15 @@
       </section>
 
       <footer class="card small">
-        <p class="muted">※ このポータルはゲーム内企業メンバー向けの簡易保護です。管理者がユーザーを作成します。</p>
+        <p class="muted">※ このポータルはゲーム内企業メンバー向けの簡易保護です。</p>
       </footer>
     </main>
   </div>
 
-  <!-- Firebase （compat 版を利用） -->
+  <!-- Firebase compat版 -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
-  <!-- 実装スクリプト -->
   <script src="script.js"></script>
 </body>
 </html>
